@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
     Container, Paper, Button, Typography, Box,
     AppBar, Toolbar, TextField, FormControl,
-    InputLabel, Select, MenuItem, Grid
+    InputLabel, Select, MenuItem, Grid, IconButton
 } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
@@ -13,6 +13,13 @@ import { ErrorMessage, Loading, ConfirmDialog } from '../components/common';
 import Statistics from '../components/Statistics';
 import DownloadIcon from '@mui/icons-material/Download';
 import { exportToExcel, exportToCSV } from '../utils/exportUtils';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import TableViewIcon from '@mui/icons-material/TableView';
+import AddIcon from '@mui/icons-material/Add';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useTheme } from '../context/ThemeContext';
 
 /**
  * Dashboard Component
@@ -37,6 +44,8 @@ const Dashboard = () => {
         message: '',
         onConfirm: null
     });
+
+    const { darkMode, toggleTheme } = useTheme();
 
     // Grid Column Definitions
     const columns = [
@@ -203,24 +212,63 @@ const Dashboard = () => {
 
     return (
         <>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        User Management System
-                    </Typography>
-                    <Button 
-                        color="inherit" 
-                        onClick={() => setView(view === 'table' ? 'stats' : 'table')}
-                    >
-                        {view === 'table' ? 'Show Statistics' : 'Show Table'}
-                    </Button>
-                    <Button color="inherit" onClick={() => navigate('/user/add')}>
-                        Add User
-                    </Button>
-                    <Button color="inherit" onClick={handleLogout}>
-                        Logout
-                    </Button>
-                </Toolbar>
+            <AppBar position="static" elevation={0} sx={{ backgroundColor: 'background.paper', borderBottom: 1, borderColor: 'divider' }}>
+                <Container maxWidth="xl">
+                    <Toolbar disableGutters>
+                        <Typography 
+                            variant="h6" 
+                            component="div" 
+                            sx={{ 
+                                flexGrow: 1, 
+                                color: 'text.primary',
+                                fontWeight: 600 
+                            }}
+                        >
+                            User Management
+                        </Typography>
+                        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                            <IconButton 
+                                onClick={toggleTheme} 
+                                sx={{ 
+                                    ml: 1,
+                                    bgcolor: 'background.default',
+                                    '&:hover': {
+                                        bgcolor: 'action.hover',
+                                    }
+                                }}
+                            >
+                                {darkMode ? (
+                                    <Brightness7Icon sx={{ color: 'text.primary' }} />
+                                ) : (
+                                    <Brightness4Icon sx={{ color: 'text.primary' }} />
+                                )}
+                            </IconButton>
+
+                            <Button 
+                                variant="outlined"
+                                onClick={() => setView(view === 'table' ? 'stats' : 'table')}
+                                startIcon={view === 'table' ? <BarChartIcon /> : <TableViewIcon />}
+                            >
+                                {view === 'table' ? 'Statistics' : 'Table'}
+                            </Button>
+                            <Button 
+                                variant="contained"
+                                onClick={() => navigate('/user/add')}
+                                startIcon={<AddIcon />}
+                            >
+                                Add User
+                            </Button>
+                            <Button 
+                                variant="outlined"
+                                color="error"
+                                onClick={handleLogout}
+                                startIcon={<LogoutIcon />}
+                            >
+                                Logout
+                            </Button>
+                        </Box>
+                    </Toolbar>
+                </Container>
             </AppBar>
 
             <Container maxWidth="lg" sx={{ mt: 4 }}>
@@ -303,7 +351,10 @@ const Dashboard = () => {
                 ) : (
                     view === 'table' ? (
                         <Paper sx={{ height: 600 }}>
-                            <div className="ag-theme-material" style={{ height: '100%', width: '100%' }}>
+                            <div 
+                                className={`ag-theme-material ${darkMode ? 'ag-theme-dark' : ''}`} 
+                                style={{ height: '100%', width: '100%' }}
+                            >
                                 <AgGridReact
                                     rowData={filteredUsers}
                                     columnDefs={columns}
@@ -312,6 +363,21 @@ const Dashboard = () => {
                                     rowSelection="multiple"
                                     suppressRowClickSelection={true}
                                     onSelectionChanged={onSelectionChanged}
+                                    defaultColDef={{
+                                        flex: 1,
+                                        minWidth: 100,
+                                        sortable: true,
+                                        filter: true,
+                                        resizable: true,
+                                        cellStyle: {
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                        }
+                                    }}
+                                    overlayNoRowsTemplate={
+                                        '<span style="color: var(--ag-secondary-foreground-color)">No users found</span>'
+                                    }
+                                    loadingOverlayComponent={Loading}
                                 />
                             </div>
                         </Paper>

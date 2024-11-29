@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import theme from './styles/theme';
+import { ThemeProvider } from './context/ThemeContext';
+import { getTheme } from './styles/theme';
+import { useTheme } from './context/ThemeContext';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -10,9 +12,12 @@ import Dashboard from './pages/Dashboard';
 import UserForm from './pages/UserForm';
 import PrivateRoute from './components/PrivateRoute';
 
-function App() {
+const ThemedApp = () => {
+  const { darkMode } = useTheme();
+  const theme = getTheme(darkMode);
+
   return (
-    <ThemeProvider theme={theme}>
+    <MUIThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <Routes>
@@ -45,8 +50,16 @@ function App() {
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
+    </MUIThemeProvider>
+  );
+};
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <ThemedApp />
     </ThemeProvider>
   );
-}
+};
 
 export default App;
