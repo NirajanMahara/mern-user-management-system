@@ -31,13 +31,42 @@ A full-stack application for managing user data with authentication, CRUD operat
 - City-wise user distribution
 - Interactive charts with tooltips
 
+### User Interface
+- Dark/Light theme toggle
+- Responsive Material-UI design
+- Interactive AG-Grid with theme support
+- Real-time search and filtering
+- Advanced data visualization dashboard
+
+### Data Visualization
+- Geographic distribution charts
+- Age demographics analysis
+- User growth trends
+- Interactive charts with tooltips
+- Responsive chart layouts
+- Multiple visualization types:
+  - Bar charts
+  - Pie charts
+  - Area charts
+  - Radar charts
+
+### Advanced Features
+- Theme persistence across sessions
+- Custom AG-Grid styling for both themes
+- Advanced filtering and sorting
+- Export functionality (Excel, CSV)
+- Batch operations support
+- Real-time statistics updates
+
 ## Tech Stack
 
 ### Frontend
 - React 18
 - Material-UI v6
-- AG-Grid for data management
+- AG-Grid Enterprise
 - Recharts for data visualization
+- Context API for theme management
+- Formik & Yup for form management
 - Axios for API communication
 - React Router v7 for navigation
 
@@ -237,6 +266,92 @@ The application includes comprehensive error handling:
 - Responsive design
 - Multiple chart types (Pie, Bar)
 
+## Technical Implementation Details
+
+### Frontend Architecture
+- **State Management**
+  - Context API for theme and auth state
+  - Local state with useState for component-level state
+  - Memoization with useMemo for performance optimization
+  - Custom hooks for reusable logic
+
+- **Data Grid Implementation**
+  - AG-Grid Enterprise integration
+  - Custom cell renderers for actions
+  - Server-side sorting and filtering
+  - Theme-aware styling system
+  - Reference: Dashboard.js (lines 51-85)
+
+- **Data Visualization**
+  - Recharts library integration
+  - Dynamic color palette system
+  - Responsive container implementations
+  - Custom tooltips and legends
+  - Reference: Statistics.js (lines 295-523)
+
+- **Theme System**
+  - Material-UI theme provider
+  - Custom CSS variables for AG-Grid
+  - Dynamic color calculations
+  - Persistent theme preferences
+  - Component-level theme awareness
+
+- **Form Management**
+  - Formik for form state management
+  - Yup schema validation
+  - Custom form components
+  - File upload handling
+  - Dynamic field validation
+
+### Backend Architecture
+- **API Layer**
+  - RESTful endpoints
+  - JWT authentication middleware
+  - Request validation
+  - Error handling middleware
+  - Rate limiting
+
+- **Database Design**
+  - MongoDB schema design
+  - Indexing strategy
+  - Data validation
+  - Efficient querying patterns
+
+- **Security Measures**
+  - Password hashing with bcrypt
+  - JWT token management
+  - Input sanitization
+  - CORS configuration
+  - Rate limiting implementation
+
+### Performance Optimizations
+- **Frontend**
+  - Code splitting
+  - Lazy loading of routes
+  - Image optimization
+  - Memoization of expensive calculations
+  - Virtual scrolling in AG-Grid
+
+- **Backend**
+  - Database query optimization
+  - Caching strategies
+  - Response compression
+  - Efficient batch operations
+  - Connection pooling
+
+### Testing Strategy
+- **Unit Tests**
+  - Component testing with React Testing Library
+  - API endpoint testing
+  - Utility function testing
+  - Mock service workers
+
+- **Integration Tests**
+  - End-to-end user flows
+  - API integration testing
+  - Database operations
+  - Authentication flows
+
 ## Development Guidelines
 
 ### Code Style
@@ -317,6 +432,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - MongoDB for the database
 - Express.js for the backend framework
 - React team for the frontend framework
+
+## Theme Configuration
+The application supports dynamic theme switching:
+- Light/Dark mode toggle
+- Persistent theme preference
+- Custom AG-Grid theme integration
+- Chart color adaptation
+- Responsive component styling
 
 ---
 Last Updated: Nov 29, 2024
