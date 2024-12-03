@@ -1,81 +1,120 @@
 # User Management System
 
-A full-stack application for managing user data with authentication, CRUD operations, and data visualization.
+A comprehensive full-stack application for user management, featuring authentication, CRUD operations, and advanced data visualization.
+
+---
+
+
+
+
+## Screenshots
+
+<div align="center">
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.38.09%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.38.49%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.39.38%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.39.55%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.43.34%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.43.56%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.51.21%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.51.34%20PM.png)
+
+![1](screenshots/Screenshot%202024-11-29%20at%201.59.24%20PM.png)
+
+![2](screenshots/Screenshot%202024-11-29%20at%202.00.01%20PM.png)
+
+![2](screenshots/Screenshot%202024-11-29%20at%202.00.17%20PM.png)
+
+![2](screenshots/Screenshot%202024-11-29%20at%202.01.30%20PM.png)
+
+![3](screenshots/Screenshot%202024-11-29%20at%203.07.18%20AM.png)
+
+![3](screenshots/Screenshot%202024-11-29%20at%203.07.44%20AM.png)
+
+![3](screenshots/Screenshot%202024-11-29%20at%203.08.32%20AM.png)
+
+![3](screenshots/Screenshot%202024-11-29%20at%203.09.01%20AM.png)
+
+![3](screenshots/Screenshot%202024-11-29%20at%203.09.30%20AM.png)
+
+![3](screenshots/Screenshot%202024-11-29%20at%203.09.45%20AM.png)
+
+![10](screenshots/Screenshot%202024-12-02%20at%2010.17.04%20PM.png)
+
+![9](screenshots/Screenshot%202024-12-02%20at%209.55.46%20PM.png)
+
+![9](screenshots/Screenshot%202024-12-02%20at%209.57.14%20PM.png)
+
+![Test Login API endpoint on Postman 10](screenshots/Test%20Login%20API%20endpoint%20on%20Postman%20Screenshot%202024-11-28%20at%2010.29.34%20PM.png)
+
+![Test registration API endpoint on Postman 10](screenshots/Test%20registration%20API%20endpoint%20on%20Postman%20Screenshot%202024-11-28%20at%2010.27.34%20PM.png)
+
+</div>
 
 ## Features
 
-### User Authentication & Management
-- Secure Login/Register system
+### Authentication & Security
+- Secure login and registration
 - JWT-based authentication
-- Password encryption
-- Session management
+- Password encryption using bcrypt
+- Session and token management
 
-### User Operations
-- Create new users with comprehensive details
-- View user information in a data grid
-- Update user information
-- Delete single/multiple users
-- Password management system
+### User Management
+- Create, read, update, and delete users
+- Manage user information via an interactive data grid
+- Batch operations (e.g., delete multiple users)
+- Password management features
 
-### Advanced Features
-- Interactive data grid with AG-Grid
+### Advanced Functionality
 - Real-time search and filtering
-- Batch operations (multiple delete)
-- Data export to Excel/CSV
+- Export data to Excel/CSV
+- Interactive data grid with AG-Grid
 - Statistical visualization with charts
 - Responsive design for all devices
 
 ### Data Visualization
-- User distribution by country (Pie Chart)
-- Age distribution (Bar Chart)
-- City-wise user distribution
-- Interactive charts with tooltips
+- Charts for user distribution by:
+  - Country (Pie Chart)
+  - Age (Bar Chart)
+  - City
+- Interactive charts with tooltips and responsive layouts
+- Various chart types: Bar, Pie, Area, Radar
 
 ### User Interface
-- Dark/Light theme toggle
-- Responsive Material-UI design
-- Interactive AG-Grid with theme support
-- Real-time search and filtering
-- Advanced data visualization dashboard
+- Dark/Light theme toggle with persistent preferences
+- Material-UI design for responsiveness and aesthetics
+- Custom AG-Grid styling with theme support
+- Dashboard with advanced data visualization
 
-### Data Visualization
-- Geographic distribution charts
-- Age demographics analysis
-- User growth trends
-- Interactive charts with tooltips
-- Responsive chart layouts
-- Multiple visualization types:
-  - Bar charts
-  - Pie charts
-  - Area charts
-  - Radar charts
-
-### Advanced Features
-- Theme persistence across sessions
-- Custom AG-Grid styling for both themes
-- Advanced filtering and sorting
-- Export functionality (Excel, CSV)
-- Batch operations support
-- Real-time statistics updates
+---
 
 ## Tech Stack
 
 ### Frontend
-- React 18
-- Material-UI v6
-- AG-Grid Enterprise
-- Recharts for data visualization
-- Context API for theme management
-- Formik & Yup for form management
-- Axios for API communication
-- React Router v7 for navigation
+- **React 18**
+- **Material-UI v6** for styling
+- **AG-Grid Enterprise** for advanced grids
+- **Recharts** for data visualization
+- **Context API** for state management
+- **Formik & Yup** for form handling and validation
+- **Axios** for API communication
+- **React Router v7** for navigation
 
 ### Backend
-- Node.js
-- Express.js
-- MongoDB with Mongoose
-- JWT for authentication
-- Bcrypt for password hashing
+- **Node.js** and **Express.js**
+- **MongoDB** with Mongoose for database management
+- **JWT** for authentication
+- **Bcrypt** for password hashing
+
+---
 
 ## Getting Started
 
@@ -86,55 +125,63 @@ A full-stack application for managing user data with authentication, CRUD operat
 
 ### Installation
 
-1. Clone the repository
+1. **Clone the repository**
+
    ```bash
    git clone [repository-url]
    cd user-management-system
    ```
 
-2. Install dependencies
+2. **Install dependencies**
+
    ```bash
-   # Install backend dependencies
+   # Backend dependencies
    cd server
    npm install
 
-   # Install frontend dependencies
+   # Frontend dependencies
    cd client
    npm install
    ```
 
-3. Environment Setup
+3. **Environment Setup**
 
-   Create `.env` files in both client and server directories:
+   Create `.env` files in both the `client` and `server` directories.
 
-   Server `.env`:
-   ```
+   **Server .env:**
+   ```env
    PORT=5000
    MONGODB_URI=your_mongodb_uri
    JWT_SECRET=your_jwt_secret
    NODE_ENV=development
    ```
 
-   Client `.env`:
-   ```
+   **Client .env:**
+   ```env
    REACT_APP_API_URL=http://localhost:5000/api
    ```
 
-4. Database Setup
+4. **Database Setup**
+
+   Optionally seed the database:
    ```bash
-   # Run database seeder (optional)
    cd server
    npm run seed
    ```
 
-5. Start the Application
+5. **Start the Application**
+
    ```bash
-   # Start backend server (from server directory)
+   # Start backend server
+   cd server
    npm start
 
-   # Start frontend application (from client directory)
+   # Start frontend application
+   cd client
    npm start
    ```
+
+---
 
 ## Project Structure
 
@@ -173,274 +220,94 @@ A full-stack application for managing user data with authentication, CRUD operat
         └── seedData.js
 ```
 
+---
+
 ## API Documentation
 
 ### Authentication Endpoints
 
 #### Register User
-POST /api/users/register
+- **POST** `/api/users/register`
 
-Request body:
-```json
-{
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "dateOfBirth": "string",
-  "phoneNumber": "string",
-  "address1": "string",
-  "city": "string",
-  "postalCode": "string",
-  "country": "string"
-}
-```
+  **Request Body:**
+  ```json
+  {
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "password": "string",
+    "dateOfBirth": "string",
+    "phoneNumber": "string",
+    "address1": "string",
+    "city": "string",
+    "postalCode": "string",
+    "country": "string"
+  }
+  ```
 
-#### Login
-POST /api/users/login
+#### Login User
+- **POST** `/api/users/login`
 
-Request body:
-```json
-{
-  "email": "string",
-  "password": "string"
-}
-```
+  **Request Body:**
+  ```json
+  {
+    "email": "string",
+    "password": "string"
+  }
+  ```
 
 ### User Management Endpoints
 
 #### Get All Users
-GET /api/users/all
+- **GET** `/api/users/all`
 
 #### Update User
-PUT /api/users/:id
+- **PUT** `/api/users/:id`
 
 #### Delete User
-DELETE /api/users/:id
+- **DELETE** `/api/users/:id`
 
 #### Batch Delete Users
-POST /api/users/batch-delete
+- **POST** `/api/users/batch-delete`
 
-Request body:
-```json
-{
-  "ids": ["string"]
-}
-```
+  **Request Body:**
+  ```json
+  {
+    "ids": ["string"]
+  }
+  ```
+
+---
 
 ## Security Features
-
 - JWT-based authentication
 - Password hashing with bcrypt
 - Protected API routes
 - Input validation and sanitization
-- Error handling and logging
+- Comprehensive error handling
 
-## Error Handling
+---
 
-The application includes comprehensive error handling:
-- Client-side form validation
-- Server-side data validation
-- API error responses
-- User-friendly error messages
-- Loading states and indicators
+## Testing
 
-## Features Implementation Details
+### Unit Testing
+- React Testing Library for components
+- Mock service workers for API testing
+- Form and validation tests
 
-### Authentication
-- JWT token-based authentication
-- Secure password hashing using bcrypt
-- Protected routes using React Router
-- Session management with local storage
+### Integration Testing
+- Authentication flows
+- CRUD operations
+- Database interactions
 
-### User Management
-- Complete CRUD operations
-- Batch operations support
-- Real-time search and filtering
-- Data export functionality
-- Form validation and error handling
-
-### Data Visualization
-- Interactive charts using Recharts
-- Dynamic data updates
-- Responsive design
-- Multiple chart types (Pie, Bar)
-
-## Technical Implementation Details
-
-### Frontend Architecture
-- **State Management**
-  - Context API for theme and auth state
-  - Local state with useState for component-level state
-  - Memoization with useMemo for performance optimization
-  - Custom hooks for reusable logic
-
-- **Data Grid Implementation**
-  - AG-Grid Enterprise integration
-  - Custom cell renderers for actions
-  - Server-side sorting and filtering
-  - Theme-aware styling system
-  - Reference: Dashboard.js (lines 51-85)
-
-- **Data Visualization**
-  - Recharts library integration
-  - Dynamic color palette system
-  - Responsive container implementations
-  - Custom tooltips and legends
-  - Reference: Statistics.js (lines 295-523)
-
-- **Theme System**
-  - Material-UI theme provider
-  - Custom CSS variables for AG-Grid
-  - Dynamic color calculations
-  - Persistent theme preferences
-  - Component-level theme awareness
-
-- **Form Management**
-  - Formik for form state management
-  - Yup schema validation
-  - Custom form components
-  - File upload handling
-  - Dynamic field validation
-
-### Backend Architecture
-- **API Layer**
-  - RESTful endpoints
-  - JWT authentication middleware
-  - Request validation
-  - Error handling middleware
-  - Rate limiting
-
-- **Database Design**
-  - MongoDB schema design
-  - Indexing strategy
-  - Data validation
-  - Efficient querying patterns
-
-- **Security Measures**
-  - Password hashing with bcrypt
-  - JWT token management
-  - Input sanitization
-  - CORS configuration
-  - Rate limiting implementation
-
-### Performance Optimizations
-- **Frontend**
-  - Code splitting
-  - Lazy loading of routes
-  - Image optimization
-  - Memoization of expensive calculations
-  - Virtual scrolling in AG-Grid
-
-- **Backend**
-  - Database query optimization
-  - Caching strategies
-  - Response compression
-  - Efficient batch operations
-  - Connection pooling
-
-### Testing Strategy
-- **Unit Tests**
-  - Component testing with React Testing Library
-  - API endpoint testing
-  - Utility function testing
-  - Mock service workers
-
-- **Integration Tests**
-  - End-to-end user flows
-  - API integration testing
-  - Database operations
-  - Authentication flows
-
-## Development Guidelines
-
-### Code Style
-- ESLint configuration for code consistency
-- Prettier for code formatting
-- Component-based architecture
-- Custom hooks for logic reuse
-- Common components for UI consistency
-
-### Best Practices
-- Proper error handling
-- Loading states management
-- Form validation
-- Secure authentication
-- Responsive design
-- Code splitting
-- Performance optimization
-
-### Testing
-- Unit tests for components
-- API endpoint testing
-- Integration testing
-- Error scenario testing
-- Authentication testing
+---
 
 ## Deployment
 
 ### Prerequisites
-- Node.js environment
-- MongoDB instance
-- Environment variables configured
+- Configure `.env` files for production
+- Set up MongoDB in production
+- Use a process manager like PM2 for the backend
+- Build the frontend with `npm run build`
 
-### Steps
-1. Build the frontend
-   ```bash
-   cd client
-   npm run build
-   ```
-
-2. Configure server
-   - Set up environment variables
-   - Configure MongoDB connection
-   - Set up JWT secret
-
-3. Deploy backend
-   - Set up Node.js environment
-   - Install dependencies
-   - Start server
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Contribution Guidelines
-- Write clear commit messages
-- Follow the existing code style
-- Add comments for complex logic
-- Update documentation as needed
-- Test your changes thoroughly
-
-## Support
-
-For support, please email [your-email] or open an issue in the repository.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Material-UI for the UI components
-- AG-Grid for the powerful data grid
-- Recharts for the visualization components
-- MongoDB for the database
-- Express.js for the backend framework
-- React team for the frontend framework
-
-## Theme Configuration
-The application supports dynamic theme switching:
-- Light/Dark mode toggle
-- Persistent theme preference
-- Custom AG-Grid theme integration
-- Chart color adaptation
-- Responsive component styling
-
----
-Last Updated: Nov 29, 2024
-Version: 1.0.0
+Deploy both backend and frontend to a hosting service of your choice (e.g., AWS, Heroku).

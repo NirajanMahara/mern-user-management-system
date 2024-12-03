@@ -1,3 +1,12 @@
+/**
+ * MERN User Management System
+ * Author: Nirajan Mahara
+ * Student ID: C0921977
+ *
+ * Description: A comprehensive full-stack application for user management,
+ * featuring authentication, CRUD operations, and advanced data visualization.
+ */
+
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
